@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('product_category', function (Blueprint $table) {
+        Schema::create('category_product', function (Blueprint $table) {
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('category_id')->index();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_category');
+        Schema::dropIfExists('cateogry_product');
     }
 };
